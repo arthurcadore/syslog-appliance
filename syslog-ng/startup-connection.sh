@@ -6,3 +6,5 @@ until mysqladmin ping -h"$MYSQL_HOST" -u"$MYSQL_USER" -p"$MYSQL_PASSWORD" &>/dev
 done
 
 echo "MySQL is up - executing command"
+
+syslog-ng -e

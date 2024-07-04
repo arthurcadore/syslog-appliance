@@ -26,6 +26,7 @@ services:
     restart: always
     build:
       context: ./db/  
+      dockerfile: Dockerfile
     ports:
       - "3306:3306"
     env_file:
