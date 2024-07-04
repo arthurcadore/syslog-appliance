@@ -26,10 +26,10 @@ services:
     container_name: syslogdb
     restart: always
     build:
-      context: ./database/  
+      context: ./db/  
     ports:
       - "3306:3306"
     env_file:
       - ./env/.env_syslogdb
     volumes:
-      - "./database/db_data:/var/lib/mysql"
+      - "./db/db_data:/var/lib/mysql"
