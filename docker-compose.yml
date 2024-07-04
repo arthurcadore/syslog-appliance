@@ -1,0 +1,35 @@
+# Author: Arthur Cadore M. Barcella
+# github: arthurcadore
+# File: Main coposition file for web server and proxy
+# =======================================================
+version: "3"
+services:
+
+  syslogserver:
+    privileged: true
+    container_name: syslogserver
+    restart: always
+    build:
+      context: ./syslog-ng/
+      dockerfile: Dockerfile
+    ports:
+      - "514:514/udp"
+    env_file:
+      - ./env/.env_syslog
+    volumes:
+      - "./syslog-ng/syslog-ng.conf:/etc/syslog-ng/syslog-ng.conf"
+      - "./log/:/var/log"
+    depends_on:
+        - 'syslogdb'
+
+  syslogdb:
+    container_name: syslogdb
+    restart: always
+    build:
+      context: ./database/  
+    ports:
+      - "3306:3306"
+    env_file:
+      - ./env/.env_syslogdb
+    volumes:
+      - "./database/db_data:/var/lib/mysql"
