@@ -1,8 +1,3 @@
 FROM mysql:8.0.34
 
-# Configurações do banco de dados
-ENV MYSQL_DATABASE syslogdb
-ENV MYSQL_ROOT_PASSWORD suaSenhaDoMySQL
-
-# Copia o script SQL para inicializar o banco de dados
 COPY ./setup.sql /docker-entrypoint-initdb.d/
