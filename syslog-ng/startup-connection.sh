@@ -1,12 +1,10 @@
 #!/bin/bash
 
-until mysqladmin ping -h"$MYSQL_HOST" -u"$MYSQL_USER" -p"$MYSQL_PASSWORD" &>/dev/null; do
-    echo "MySQL is unavailable - sleeping"
+while ! mysqladmin ping -h"$DB_HOST" -u"$DB_USER" -p"$DB_PASSWORD" --silent; do
+    echo "Waiting for database be ready..."
     sleep 1
 done
 
-    sleep 1
-    
 echo "MySQL is up - executing command"
     sleep 1
 
