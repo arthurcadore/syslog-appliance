@@ -33,3 +33,22 @@ services:
       - ./env/.env_syslogdb
     volumes:
       - "./db/db_data:/var/lib/mysql"
+
+  grafanaserver:
+    container_name: grafanaserver
+    restart: always
+    build:
+      context: ./grafana/  
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    user: "1000:1000"
+    volumes:
+      - "grafanadata:/var/lib/grafana"
+      - "grafanaetc:/etc/grafana"
+    env_file:
+      - ./env/.env_grafana
+
+volumes:
+  grafanadata:
+  grafanaetc:
