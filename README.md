@@ -1,6 +1,6 @@
 # SYSLOG-NG Appliance for MySQL Data Storage  
 
-![main](./templates/pictures/image.png)
+![main](./templates/version-2/pictures/image.png)
 
 ### This repository implements SYSLOG-NG package for receive logs and write in a MySQL database, also display the syslog data in Grafana Dashboard.
 
