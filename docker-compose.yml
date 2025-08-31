@@ -2,9 +2,6 @@ services:
   syslogserver:
     container_name: syslogserver
     image: arthurcadore/my-syslogserver:1.0.0
-    build:
-      context: .
-      dockerfile: ./docker/Dockerfile
     restart: unless-stopped
     ports:
       - "514:514/udp"
